@@ -2,14 +2,14 @@
 
 Gem::Specification.new do |s|
   s.name = %q{domino}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Chris Kalafarski"]
-  s.date = %q{2009-01-29}
+  s.date = %q{2009-02-06}
   s.description = %q{TODO}
   s.email = %q{chris@farski.com}
-  s.files = ["Domino.tmproj", "VERSION.yml", "lib/domino.rb", "test/domino_test.rb", "test/test_helper.rb"]
+  s.files = ["VERSION.yml", "lib/domino.rb", "test/domino_test.rb", "test/test_helper.rb"]
   s.homepage = %q{http://github.com/farski/domino}
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.1}
