@@ -13,9 +13,9 @@ module Domino
   class Element
     def initialize(name = nil, attributes = nil, singleton = false, &block)
       if name
-        @name = name
-        @sigleton = singleton        
+        @name = name     
         @attributes = attributes.inject(Array.new) { |collection, attribute| collection << Domino::Attribute.new(attribute[0], attribute[1])} if attributes
+        @singleton = singleton
       end
       
       @contents = (block_given? ? [yield(block)] : [])
@@ -33,7 +33,7 @@ module Domino
     
     def start_or_singleton_tag_definition
       attributes_markup = @attributes.inject(Array.new) { |collection, attribute| collection << attribute.to_s } if @attributes
-      [@name.to_s, attributes_markup].compact.join(" ")
+      [@name.to_s, attributes_markup].compact.join(" ").strip
     end
     
     def start_tag
@@ -49,7 +49,7 @@ module Domino
     end
     
     def markup
-      @singleton ? singleton_tag : [start_tag, @contents, end_tag].join
+      @singleton == true ? singleton_tag : [start_tag, @contents, end_tag].join
     end
     
     def to_s
